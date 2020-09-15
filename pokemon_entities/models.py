@@ -7,13 +7,14 @@ class Pokemon(models.Model):
     description = models.TextField(max_length=1024, null=True, blank=True)
     title_en = models.CharField(max_length=200, null=True, blank=True, default='')
     title_jp = models.CharField(max_length=200, null=True, blank=True, default='')
+    previous_evolution = models.ForeignKey('self', on_delete=models.DO_NOTHING, null=True, blank=True, related_name='next_evolution')
 
     def __str__(self):
         return self.title
 
 
 class PokemonEntity(models.Model):
-    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
+    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE,)
     latitude = models.FloatField()
     longitude = models.FloatField()
     appeared_at = models.DateTimeField(blank=True, null=True)
