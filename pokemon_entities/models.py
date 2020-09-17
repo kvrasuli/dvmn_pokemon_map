@@ -9,15 +9,15 @@ class Pokemon(models.Model):
         verbose_name='Изображение'
     )
     description = models.TextField(
-        max_length=1024, null=False, blank=True, default='',
+        max_length=1024, blank=True,
         verbose_name='Описание'
     )
     title_en = models.CharField(
-        max_length=200, null=False, blank=True, default='',
+        max_length=200, blank=True,
         verbose_name='Английское название'
     )
     title_jp = models.CharField(
-        max_length=200, null=False, blank=True, default='',
+        max_length=200, blank=True,
         verbose_name='Японское название'
     )
     previous_evolution = models.ForeignKey(
